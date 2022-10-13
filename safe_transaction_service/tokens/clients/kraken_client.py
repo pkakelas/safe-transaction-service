@@ -54,5 +54,12 @@ class KrakenClient:
     def get_matic_usd_price(self):
         return self._get_price("MATICUSD")
 
+    def get_sgb_usd_price(self):
+        """
+        :return: current USD price for Flare Songbird
+        :raises: CannotGetPrice
+        """
+        return self._get_price("SGBUSD")
+
     def get_ewt_usd_price(self) -> float:
         return self._get_price("EWTUSD")

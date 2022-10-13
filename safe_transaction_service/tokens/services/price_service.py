@@ -155,6 +155,9 @@ class PriceService:
     def get_cardano_usd_price(self) -> float:
         return self.binance_client.get_ada_usd_price()
 
+    def get_kraken_sgb_price(self) -> float:
+        return self.kraken_client.get_sgb_usd_price()
+
     def get_binance_usd_price(self) -> float:
         try:
             return self.binance_client.get_bnb_usd_price()
@@ -236,6 +239,11 @@ class PriceService:
             EthereumNetwork.FUSE_SPARK,
         ):
             return self.coingecko_client.get_fuse_usd_price()
+        elif self.ethereum_network in (
+            EthereumNetwork.FLR_COSTON,
+            EthereumNetwork.SGB_SONGBIRD,
+        ):
+            return self.get_kraken_sgb_price()
         else:
             try:
                 return self.kraken_client.get_eth_usd_price()
