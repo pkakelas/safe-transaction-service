@@ -242,6 +242,7 @@ class PriceService:
         elif self.ethereum_network in (
             EthereumNetwork.FLR_COSTON,
             EthereumNetwork.SGB_SONGBIRD,
+            EthereumNetwork.FLR_FLARE, # Fix that if when there's a better market
         ):
             return self.get_kraken_sgb_price()
         else:
